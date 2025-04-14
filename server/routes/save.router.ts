@@ -10,6 +10,11 @@ const saveRouter = Router();
 // app.use(bodyParser.json({ limit: '50mb' }));
 // app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
+// Router to handle vercel default route
+saveRouter.get('/', (req, res) => {
+  res.json({ message: 'Vercel reached saveRouter' });
+});
+
 //Load Saved Queries
 saveRouter.get(
   '/saved-queries',

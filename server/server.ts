@@ -38,10 +38,14 @@ app.use(
   })
 );
 
-app.listen(3000, () => {
-  log.info(`Securely Running at ${port}`);
-  routes(app);
-});
+// place outside listen for vercel
+routes(app);
+
+// ❌ Remove for serverless deployment, not used
+// 🔑 MUST BE USED FOR LOCALHOST RUNNING
+// app.listen(3000, () => {
+//   log.info(`Securely Running at ${port}`);
+// });
 
 // export default app;
 // export default app;
