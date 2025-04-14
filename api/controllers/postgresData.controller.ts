@@ -16,7 +16,7 @@ import {
   removeForeignKey,
 } from './helperFunctions/universal.helpers';
 import { resourceLimits } from 'worker_threads';
-import pool from './../models/userModel';
+import pool from '../models/userModel';
 import dotenv from 'dotenv';
 
 dotenv.config();

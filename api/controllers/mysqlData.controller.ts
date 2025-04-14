@@ -16,7 +16,7 @@ import {
   getTableNames,
 } from './helperFunctions/universal.helpers';
 import { exec } from 'child_process';
-import pool from './../models/userModel';
+import pool from '../models/userModel';
 
 // Object containing all of the middleware
 const mysqlController = {
