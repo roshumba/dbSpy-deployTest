@@ -8,11 +8,11 @@ import {
   verifyUser,
 } from '../controllers/user.controller';
 import { postgresRouter } from './postgres.router';
-// import { microsoftRouter } from './microsoft.router';
-// import { oracleRouter } from './oracle.router';
-// import { mysqlRouter } from './mysql.router';
-// import { sqliteRouter } from './sqlite.router';
-// import { saveRouter } from './save.router';
+import { microsoftRouter } from './microsoft.router';
+import { oracleRouter } from './oracle.router';
+import { mysqlRouter } from './mysql.router';
+import { sqliteRouter } from './sqlite.router';
+import { saveRouter } from './save.router';
 import { config } from 'dotenv';
 import log from '../logger/index';
 import type { DefaultErr } from '../../src/Types';
@@ -85,19 +85,19 @@ const routes = (app: Express) => {
 
   app.use('/api/sql/postgres', cookieSession, postgresRouter);
 
-  // app.use('/api/sql/mysql', cookieSession, mysqlRouter);
+  app.use('/api/sql/mysql', cookieSession, mysqlRouter);
 
-  // app.use('/api/sql/mssql', cookieSession, microsoftRouter);
+  app.use('/api/sql/mssql', cookieSession, microsoftRouter);
 
-  // app.use('/api/sql/oracle', cookieSession, oracleRouter);
+  app.use('/api/sql/oracle', cookieSession, oracleRouter);
 
-  // app.use('/api/sql/sqlite', cookieSession, sqliteRouter);
+  app.use('/api/sql/sqlite', cookieSession, sqliteRouter);
 
-  // app.use('/api/saveFiles', cookieSession, saveRouter);
+  app.use('/api/saveFiles', cookieSession, saveRouter);
 
-  // app.post('/api/saveSchema', saveSchema, (_req: Request, res: Response) => {
-  //   return res.sendStatus(200);
-  // });
+  app.post('/api/saveSchema', saveSchema, (_req: Request, res: Response) => {
+    return res.sendStatus(200);
+  });
 
   // Status code being handled in middleware
   app.get('/api/retrieveSchema', retrieveSchema);
