@@ -7,7 +7,7 @@ import {
   userRegistration,
   verifyUser,
 } from '../controllers/user.controller';
-import { postgresRouter } from './postgres.router';
+// import { postgresRouter } from './postgres.router';
 // import { microsoftRouter } from './microsoft.router';
 // import { oracleRouter } from './oracle.router';
 // import { mysqlRouter } from './mysql.router';
