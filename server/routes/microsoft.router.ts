@@ -3,6 +3,11 @@ import microsoftController from '../controllers/microsoftData.controller';
 
 const microsoftRouter = Router();
 
+// Router to handle vercel default route
+microsoftRouter.get('/', (req, res) => {
+  res.json({ message: 'Vercel reached microsoftRouter' });
+});
+
 // Retrieve Microsoft SQL schema and data from REMOTE db
 microsoftRouter.get('/schema', microsoftController.microsoftQuery, (_req: Request, res: Response) => {
   return res.status(200).json(res.locals);

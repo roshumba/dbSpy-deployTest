@@ -3,6 +3,11 @@ import oracleController from '../controllers/oracleData.controller';
 
 const oracleRouter = Router();
 
+// Router to handle vercel default route
+oracleRouter.get('/', (req, res) => {
+  res.json({ message: 'Vercel reached oracleRouter' });
+});
+
 // Retrieve Oracle SQL schema and data from REMOTE db
 oracleRouter.get('/schema', oracleController.oracleQuery, (_req: Request, res: Response) => {
   return res.status(200).json(res.locals);

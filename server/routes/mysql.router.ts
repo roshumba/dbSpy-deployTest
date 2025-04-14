@@ -3,6 +3,11 @@ import mysqlController from '../controllers/mysqlData.controller';
 
 const mysqlRouter = Router();
 
+// Router to handle vercel default route
+mysqlRouter.get('/', (req, res) => {
+  res.json({ message: 'Vercel reached mysqlRouter' });
+});
+
 // Retrieve MySQL schema and data from REMOTE db
 mysqlRouter.get('/schema', mysqlController.mysqlQuery, (_req: Request, res: Response) => {
   return res.status(200).json(res.locals);

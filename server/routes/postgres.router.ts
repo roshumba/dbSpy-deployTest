@@ -3,6 +3,11 @@ import postgresController from '../controllers/postgresData.controller';
 
 const postgresRouter = Router();
 
+// Router to handle vercel default route
+postgresRouter.get('/', (req, res) => {
+  res.json({ message: 'Vercel reached postgresRouter' });
+});
+
 // Retrieve Postgres schema and data from REMOTE db
 postgresRouter.get(
   '/schema',

@@ -3,6 +3,11 @@ import sqliteController from '../controllers/sqliteData.controller';
 
 const sqliteRouter = Router();
 
+// Router to handle vercel default route
+sqliteRouter.get('/', (req, res) => {
+  res.json({ message: 'Vercel reached sqliteRouter' });
+});
+
 // Retrieve SQLite schema and data from LOCAL db
 sqliteRouter.get('/schema', sqliteController.sqliteQuery, (_req: Request, res: Response) => {
   return res.status(200).json(res.locals);

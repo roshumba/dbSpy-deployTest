@@ -17,6 +17,7 @@ import { config } from 'dotenv';
 import log from '../logger/index';
 import type { DefaultErr } from '../../src/Types';
 import session from 'express-session';
+import { meRouter } from './me.router';
 
 config();
 
@@ -66,7 +67,9 @@ const routes = (app: Express) => {
     return res.status(200).json(res.locals.verified);
   });
 
-  app.use('/api/me', getCurrentUser);
+  // Remove for Vercel
+  // Added me.router to handle this route
+  // app.use('/api/me', getCurrentUser);
 
   app.use('/api/logout', (req, res) => {
     req.session.destroy((err: ErrorEvent) => {
@@ -77,6 +80,8 @@ const routes = (app: Express) => {
       }
     });
   });
+
+  app.use('/api/me', cookieSession, meRouter);
 
   app.use('/api/sql/postgres', cookieSession, postgresRouter);
 
