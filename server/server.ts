@@ -7,7 +7,6 @@ import cors from 'cors';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
-import serverlessExpress from '@vendia/serverless-express';
 
 
 config();
@@ -44,6 +43,4 @@ app.listen(3000, () => {
   routes(app);
 });
 
-// export default app;
-// Export wrapped handler
-exports.handler = serverlessExpress({ app });
+export default app;
