@@ -9,7 +9,6 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import serverlessExpress from '@vendia/serverless-express';
 
-
 config();
 
 const port: number = Number(process.env.PORT) || 3000;
@@ -44,6 +43,7 @@ app.listen(3000, () => {
   routes(app);
 });
 
+// export default app;
 // export default app;
 // Export wrapped handler
 exports.handler = serverlessExpress({ app });
